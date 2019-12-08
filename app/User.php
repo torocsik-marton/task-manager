@@ -61,4 +61,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+
+
+    public function uncompletedTasks()
+    {
+        return $this
+            ->hasMany(Task::class)
+            ->where('completed', 0);
+    }
+
+
+    public function getPermissionList() {
+        return $this
+            ->permissions()
+            ->get(['permission'])
+            ->pluck('permission');
+    }
 }
