@@ -6,7 +6,6 @@
 
         <label for="">E-mail:</label>
         <input type="text" name="email" placeholder="e-mail" />
-
         <br/>
 
         <label for="">Password:</label>

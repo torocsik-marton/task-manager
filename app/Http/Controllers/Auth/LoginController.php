@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/task-manager';
 
     /**
      * Create a new controller instance.
@@ -44,6 +44,7 @@ class LoginController extends Controller
         return view('login');
     }
 
+
     public function login(Request $request) {
         $credentials = $request->only('email', 'password');
 
@@ -55,5 +56,13 @@ class LoginController extends Controller
                 ->back()
                 ->with('error', 'Wrong username/password combination.');
         }
+    }
+
+
+    public function logout() {
+        Auth::logout();
+
+        return redirect()
+            ->route('login');
     }
 }

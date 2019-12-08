@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
     /**
      * The attributes that are mass assignable.
@@ -41,8 +42,21 @@ class User extends Authenticatable
         ];
 
 
-    public function roles()
+    public function roles() {
+        return $this->belongsToMany(Role::class);
+    }
+
+
+    public function permissions()
     {
-        return $this->belongsToMany('App\Role');
+        return $this->hasManyDeep(
+            Permission::class,
+            ['role_user', Role::class, 'permission_role']
+        );
+    }
+
+
+    public function tasks() {
+        return $this->hasMany(Task::class);
     }
 }

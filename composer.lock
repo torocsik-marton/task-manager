@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94d4bf9ac7f4a933030e46a346ee2917",
+    "content-hash": "5f8a2c4109dc83ce7873cd537d83f5a0",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1425,6 +1425,47 @@
                 "uuid"
             ],
             "time": "2019-12-01T04:55:27+00:00"
+        },
+        {
+            "name": "staudenmeir/eloquent-has-many-deep",
+            "version": "v1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/staudenmeir/eloquent-has-many-deep.git",
+                "reference": "adb00ac69fc66037f83942f49437a9f1b5e3ce58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/staudenmeir/eloquent-has-many-deep/zipball/adb00ac69fc66037f83942f49437a9f1b5e3ce58",
+                "reference": "adb00ac69fc66037f83942f49437a9f1b5e3ce58",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.8.*",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "illuminate/pagination": "5.8.*",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Staudenmeir\\EloquentHasManyDeep\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonas Staudenmeir",
+                    "email": "mail@jonas-staudenmeir.de"
+                }
+            ],
+            "description": "Laravel Eloquent HasManyThrough relationship with unlimited levels",
+            "time": "2019-02-26T16:06:17+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

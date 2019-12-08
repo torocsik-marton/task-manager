@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->text('description')->nullable();
-            $table->boolean('closed')->default(0);
+            $table->boolean('completed')->default(0);
             $table->timestamps();
 
             $table
