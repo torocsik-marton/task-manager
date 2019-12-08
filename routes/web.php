@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Auth\LoginController@loginView')
+    ->name('login');
+
+Route::post('/', 'Auth\LoginController@login');
+
+Route::get('/task-manager', 'Auth\TaskManagerController@taskManagerView')
+    ->name('task-manager');
