@@ -4,7 +4,6 @@ namespace App\Services;
 
 
 use App\Task;
-use App\User;
 use Auth;
 
 class TaskService
@@ -26,8 +25,9 @@ class TaskService
         ]);
     }
 
-    public function completeTask($id) {
-        $task = Task::find($id);
+    public function completeTask($id)
+    {
+        $task            = Task::find($id);
         $task->completed = 1;
         $task->save();
     }

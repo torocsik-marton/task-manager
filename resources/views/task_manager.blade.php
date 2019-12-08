@@ -25,7 +25,7 @@
         <textarea name="description" rows="4"></textarea>
         <br/>
 
-        <input type="submit" value="Add new task" />
+        <input type="submit" value="Add new task"/>
     </form>
 
     <h2>Tasks TODO</h2>
@@ -41,7 +41,7 @@
                 <td>{{ $task->title }}</td>
                 <td>{{ $task->description }}</td>
                 <td>{{ $task->user->name }}</td>
-                <td> <a href="{{ route('task-manager.complete', ['id' => $task->id]) }}">Complete</a> </td>
+                <td><a href="{{ route('task-manager.complete', ['id' => $task->id]) }}">Complete</a></td>
             </tr>
         @endforeach
     </table>

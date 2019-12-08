@@ -40,12 +40,14 @@ class LoginController extends Controller
     }
 
 
-    public function loginView() {
+    public function loginView()
+    {
         return view('login');
     }
 
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
@@ -59,7 +61,8 @@ class LoginController extends Controller
     }
 
 
-    public function logout() {
+    public function logout()
+    {
         Auth::logout();
 
         return redirect()
