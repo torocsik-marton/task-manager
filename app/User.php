@@ -41,6 +41,7 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
         ];
 
+    protected $appends = ['permission_list'];
 
     public function roles()
     {
@@ -71,10 +72,11 @@ class User extends Authenticatable
     }
 
 
-    public function getPermissionList() {
+    public function getPermissionListAttribute() {
         return $this
             ->permissions()
             ->get(['permission'])
-            ->pluck('permission');
+            ->pluck('permission')
+            ->toArray();
     }
 }

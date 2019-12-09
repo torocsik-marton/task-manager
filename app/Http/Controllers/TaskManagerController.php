@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddTask;
-use App\Services\PermissionService;
 use App\Services\TaskService;
 use App\Task;
 use Illuminate\Http\Request;
@@ -21,9 +20,8 @@ class TaskManagerController extends Controller
     public function taskManagerView()
     {
         $user = Auth::user();
-        $permission_service = new PermissionService($user);
 
-        if ($permission_service->userHasPermission('complete_any_task')) {
+        if ($user->can('seeAll', Task::class)) {
             $view_data['tasks'] = Task::where('completed', 0)
                 ->get();
         } else {
@@ -50,12 +48,10 @@ class TaskManagerController extends Controller
     public function completeTask($id)
     {
         $task = Task::find($id);
+        $user = Auth::user();
 
         if (!empty($task)) {
-            $user             = Auth::user();
-            $permission_service = new PermissionService($user);
-
-            if ($permission_service->userHasPermission('complete_any_task') || ($permission_service->userHasPermission('complete_own_task') && $user->id === $task->user_id)) {
+            if ($user->can('complete', $task)) {
                 $this->task_service->completeTask($id);
 
                 return redirect()
